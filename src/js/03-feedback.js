@@ -24,8 +24,18 @@ const formElements = {
 
     const onFormSubmit = (e) => {
         e.preventDefault();
-        e.currentTarget.reset();
+      
+        // Выводим данные в консоль
+        console.log('Submitted Data:', formData);
+      
+        // Очищаем поля формы
+        formElements.emailEl.value = '';
+        formElements.textAreaEl.value = '';
+      
+        // Очищаем localStorage
         localStorage.removeItem(LOCAL_STORAGE_KEY);
-    };
+      };
+      
+      formElements.formEl.addEventListener('submit', onFormSubmit);
     formElements.formEl.addEventListener('submit', onFormSubmit);
 
